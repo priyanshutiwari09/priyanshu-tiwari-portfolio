@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .dark {
+    --bg: 10 12 16;
+    --elev: 18 21 28;
+    --surface: 22 26 34;
+    --line: 40 46 58;
+    --ink: 232 235 242;
+    --muted: 145 152 169;
+    --faint: 99 106 122;
+    --accent: 124 140 255;
+    --accent2: 52 229 200;
+  }
+
+  .light {
+    --bg: 247 248 251;
+    --elev: 255 255 255;
+    --surface: 255 255 255;
+    --line: 224 228 236;
+    --ink: 20 23 31;
+    --muted: 86 94 112;
+    --faint: 140 148 164;
+    --accent: 74 91 214;
+    --accent2: 15 181 160;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.3);
+    color: rgb(var(--ink));
+  }
+
+  /* Offset anchors so the sticky navbar doesn't cover section tops */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Visible keyboard focus */
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar (progressive enhancement) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--line));
+    border-radius: 999px;
+    border: 2px solid rgb(var(--bg));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--faint));
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-accent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-elev;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      100deg,
+      rgb(var(--accent)),
+      rgb(var(--accent2))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
