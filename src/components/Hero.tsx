@@ -113,7 +113,7 @@ export function Hero() {
                 width={288}
                 height={288}
                 loading="eager"
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-[1.75rem] object-cover"
               />
             </motion.div>
           </div>
