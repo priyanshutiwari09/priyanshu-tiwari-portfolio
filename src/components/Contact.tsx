@@ -74,7 +74,7 @@ export function Contact() {
         index="08"
         eyebrow="Contact"
         title="Get in touch"
-        description="Have a role or a question? Send a message or reach me on any platform below."
+        description="Have a question or want to connect? Feel free to reach out on any platform below."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
