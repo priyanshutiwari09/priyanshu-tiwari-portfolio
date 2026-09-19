@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Mail } from 'lucide-react'
-import { about, site, socials } from '@/data/portfolio'
-import { Button } from './ui/Button'
-import { SocialIcon } from './ui/SocialIcon'
-import { easeOut, staggerContainer, staggerItem } from '@/lib/animations'
+import { motion } from "framer-motion";
+import { ArrowRight, Mail } from "lucide-react";
+import { about, site, socials } from "@/data/portfolio";
+import { Button } from "./ui/Button";
+import { SocialIcon } from "./ui/SocialIcon";
+import { easeOut, staggerContainer, staggerItem } from "@/lib/animations";
 
 export function Hero() {
   return (
@@ -33,8 +33,8 @@ export function Hero() {
             variants={staggerItem}
             className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
           >
-            {site.name.split(' ')[0]}{' '}
-            <span className="text-gradient">{site.name.split(' ')[1]}</span>
+            {site.name.split(" ")[0]}{" "}
+            <span className="text-gradient">{site.name.split(" ")[1]}</span>
           </motion.h1>
 
           <motion.p
@@ -70,7 +70,7 @@ export function Hero() {
             className="mt-8 flex justify-center gap-4 lg:justify-start"
           >
             {socials
-              .filter((s) => s.icon !== 'mail')
+              .filter((s) => s.icon !== "mail")
               .map((social) => (
                 <a
                   key={social.label}
@@ -93,19 +93,22 @@ export function Hero() {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
           className="order-1 flex justify-center lg:order-2 lg:justify-end"
         >
-          <div className="relative">
+          <div className="relative isolate">
+            {/* Static glow: radial gradient, no blur filter, so no square edge */}
             <div
               aria-hidden="true"
-              className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/40 to-accent2/40 opacity-60 blur-2xl"
+              className="pointer-events-none absolute -inset-10 -z-10 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(closest-side, rgba(99,102,241,0.35), rgba(139,92,246,0.15) 60%, transparent 100%)",
+              }}
             />
+
+            {/* Only this floats */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="relative aspect-square w-56 overflow-hidden rounded-[1.75rem] border border-line bg-elev sm:w-64 lg:w-72"
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative aspect-square w-56 rounded-[1.75rem] border border-line bg-elev will-change-transform sm:w-64 lg:w-72"
             >
               <img
                 src={site.profileImage}
@@ -113,12 +116,12 @@ export function Hero() {
                 width={288}
                 height={288}
                 loading="eager"
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-[1.75rem] object-cover"
               />
             </motion.div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
