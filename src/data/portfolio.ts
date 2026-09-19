@@ -191,7 +191,7 @@ export const beyondCoding = {
   followers: "225K+",
   image: "/instagram.png",
   description:
-    "Beyond software engineering, I’m the Founder & Manager of @mumbaiinlast24hrs, a leading Mumbai-focused Instagram news platform with 215K+ followers. I’m also part of a broader news network that includes @indiainlast24hr (4.5M+ followers), @worldinlast24hrs (1M+ followers), and other prominent pages, delivering local, national, and global news updates.",
+    "Beyond software engineering, I’m the Founder & Manager of @mumbaiinlast24hrs, a Mumbai-focused Instagram news platform with 215K+ followers, founded in 2024 during my college years. I’m also part of a broader news network that includes @indiainlast24hr (4.5M+ followers), @worldinlast24hrs (1M+ followers), and other prominent pages, delivering local, national, and global news updates.",
   url: "https://www.instagram.com/mumbaiinlast24hrs", // TODO: verify handle URL
 };
 
